@@ -1,0 +1,55 @@
+$color-primary: #00897B;
+$color-secondary: #0288D1;
+$color-accent: #F9A825;
+
+$color-light: #ffffff;
+$color-dark: #000000;
+
+$color-red: #f44336;
+$color-pink: #E91E63;
+$color-purple: #9C27B0;
+$color-deep-purple: #673AB7;
+$color-indigo: #3F51B5;
+$color-blue: #2196F3;
+$color-light-blue: #03A9F4;
+$color-cyan: #00BCD4;
+$color-teal: #009688;
+$color-green: #4CAF50;
+$color-light-green: #8BC34A;
+$color-lime: #CDDC39;
+$color-yellow: #FFEB3B;
+$color-amber: #FFC107;
+$color-orange: #FF9800;
+$color-deep-orange: #FF5722;
+$color-brown: #795548;
+$color-gray: #9E9E9E;
+$color-blue-gray: #607D8B;
+
+:export {
+  color_primary: $color-primary;
+  color_secondary: $color-secondary;
+  color_accent: $color-accent;
+
+  color_light: $color-light;
+  color_dark: $color-dark;
+
+  color_red: $color-red;
+  color_pink: $color-pink;
+  color_purple: $color-purple;
+  color_deep_purple: $color-deep-purple;
+  color_indigo: $color-indigo;
+  color_blue: $color-blue;
+  color_light_blue: $color-light-blue;
+  color_cyan: $color-cyan;
+  color_teal: $color-teal;
+  color_green: $color-green;
+  color_light_green: $color-light-green;
+  color_lime: $color-lime;
+  color_yellow: $color-yellow;
+  color_amber: $color-amber;
+  color_orange: $color-orange;
+  color_deep_orange: $color-deep-orange;
+  color_brown: $color-brown;
+  color_gray: $color-gray;
+  color_blue_gray: $color-blue-gray;
+}

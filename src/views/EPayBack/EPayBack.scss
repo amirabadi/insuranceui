@@ -1,0 +1,11 @@
+@import '../../static/style/scss/utils/utils';
+
+.EPay{
+  font-size: 1.2rem;
+  .SuccessPay{
+    background-color: $color-green;
+  }
+  .FailedPay{
+    background-color: $color-red;
+  }
+}

@@ -1,0 +1,20 @@
+@import '../../static/style/scss/utils/utils';
+
+.Home {
+  .Subject {
+    text-align: center;
+    color: red;
+    margin-top: 50px;
+    .SubjectText {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .SubjectIcon {
+      color: initial;
+      margin-top: inherit;
+      font-size: 4rem;
+    }
+  }
+}

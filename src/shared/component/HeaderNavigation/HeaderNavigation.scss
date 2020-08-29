@@ -1,0 +1,19 @@
+@import '../../../static/style/scss/utils/utils';
+
+.Header {
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+    .Title {
+        color: $color-accent;
+        letter-spacing: 5px;
+    }
+
+    .Description {
+        color: $color-light;
+    }
+}

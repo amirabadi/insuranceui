@@ -1,0 +1,11 @@
+@import 'font';
+@import './utils/utils';
+
+* {
+  //direction: rtl;
+  font-family: 'yekan', tahoma !important;
+}
+
+:root {
+  font-size: $dimen-font-size;
+}

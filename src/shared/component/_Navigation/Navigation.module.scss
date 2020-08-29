@@ -1,0 +1,43 @@
+@import '../../../static/style/scss/utils/utils';
+
+.Navigation {
+    background-color: $color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+
+    .Header {
+
+    }
+
+    .Body {
+        >.Items {
+
+            >.Item {
+                >.Content {
+                    display: block;
+                    padding: 20px;
+                    background-color: $color-pink;
+                    color: $color-light;
+                    font-size: 1.2rem;
+                }
+
+                .SubMenu {
+                    .Items {
+                        .Item {
+                            .Content {
+                                display: block;
+                                padding: 20px;
+                                background-color: $color-brown;
+                                color: $color-light;
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
