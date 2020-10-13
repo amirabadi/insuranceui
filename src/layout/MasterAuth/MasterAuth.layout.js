@@ -12,7 +12,7 @@ const MasterAuth = ({children}) => {
     // OnLoad
     useEffect(() => {
         if (!Auth.isLogin()) {
-            history.push('/auth');
+            history.push('/LoginPage');
         }
     }, [])
 
