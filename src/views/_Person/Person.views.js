@@ -24,7 +24,6 @@ const Person = () => {
         }, []);
     */
 
-    console.log(urlGetAll)
     return (
        <Test action={handler} value={data}/>
     );

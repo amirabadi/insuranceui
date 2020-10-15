@@ -25,7 +25,6 @@ function a(){
         h();
 }
     function h(state = initialState) {
-        console.log(state);
         return Object.assign({}, state, {
             articles: state.articles.concat('i')
         });

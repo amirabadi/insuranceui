@@ -8,6 +8,7 @@ import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import {ThemeProvider} from "@material-ui/styles";
 import _colors from './static/style/scss/utils/_color.scss';
 import Routing from "./shared/Routing";
+import { CookiesProvider } from 'react-cookie';
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
@@ -28,11 +29,13 @@ const theme = createMuiTheme({
 
 const App = () => {
     return (
+        <CookiesProvider>
         <StylesProvider jss={jss}>
             <ThemeProvider theme={theme}>
                 <Routing />
             </ThemeProvider>
         </StylesProvider>
+        </CookiesProvider>
     )
 }
 

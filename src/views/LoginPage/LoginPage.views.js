@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import {makeStyles} from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {STRINGS} from "../../shared/values/strings";
+import loginService from "../../shared/services/Login.service";
+import Auth from "../../shared/services/Auth";
+import { useHistory } from 'react-router';
 
 function Copyright() {
     return (
@@ -49,10 +52,31 @@ const useStyles = makeStyles((theme) => ({
 
 export default function LoginPage() {
     const classes = useStyles();
+    const history = useHistory();
+    const initialFormData = Object.freeze({
+        userName: "",
+        password: ""
+    });
+    const [formData, updateFormData] = React.useState(initialFormData);
 
+    function handleChangeLogin(e) {
+        updateFormData({
+            ...formData,
+            [e.target.name]: e.target.value.trim()
+        });
+
+    }
+    const login=async ()=>  {
+        const res =await loginService.login(formData);
+        Auth.login(res.data.Authorization);
+    }
     function handleSubmit(event) {
         event.preventDefault();
 
+login();
+        if(Auth.isLogin()){
+            history.push('/Person');
+        }
     }
 
     return (
@@ -67,14 +91,15 @@ export default function LoginPage() {
                 </Typography>
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
                     <div dir="rtl">
-                    <TextField variant="outlined" margin="normal" required fullWidth
-                        id="userName" label={STRINGS.userName} name="userName" autoFocus />
+                        <TextField variant="outlined" margin="normal" required fullWidth onChange={handleChangeLogin}
+                                   id="userName" label={STRINGS.userName} name="userName" autoFocus/>
                     </div>
-                    <TextField variant="outlined" margin="normal" required fullWidth name="password" label={STRINGS.password}
-                        type="password" id="password" />
+                    <TextField variant="outlined" margin="normal" required fullWidth name="password"
+                               label={STRINGS.password}
+                               type="password" id="password" onChange={handleChangeLogin}/>
                     <FormControlLabel control={<Checkbox value="remember" color="primary"/>} label="Remember me"/>
-                    <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} >
-                       ورود
+                    <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                        ورود
                     </Button>
                     <Grid container>
                         <Grid item xs>

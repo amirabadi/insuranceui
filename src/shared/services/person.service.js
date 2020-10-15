@@ -1,4 +1,10 @@
 import Ajax from '../../utilis/Ajax'
+import Auth from "./Auth";
+import { instanceOf } from 'prop-types';
+import { withCookies, Cookies } from 'react-cookie';
+import { cookies } from 'js-cookie';
+
+import Person from "../../views/Person/Person.views";
 const personService={
 
     addRecord:async ()=>{
@@ -6,14 +12,14 @@ const personService={
     },
     list:async ()=>{
         const response=await Ajax.getAll({
-            isAuth:false,
             url:'getAllPersons'
         })
         return response;
     },
     pagable:async (dataIn)=>{
         const response=await Ajax.getAllPage({
-            isAuth:false,
+
+
             url:'getPersonsPage',
             data:dataIn
         })
