@@ -6,6 +6,9 @@ import PersonTable from '../../shared/component/DataTable/DataTable.component'
 import Test from "../../shared/component/Test/Test.component";
 import DataTableDTo from '../../shared/dto/DataTableDTO'
 import MasterAuth from "../../layout/MasterAuth/MasterAuth.layout";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
+import TableRow from "@material-ui/core/TableRow";
 
 const Person = () => {
     const [content, setContent] = React.useState([]);
@@ -35,10 +38,20 @@ const Person = () => {
         loadData();
     }
 
+    const savePopupHandle=()=>{
+
+    };
+    const deletePopupHandle=(event)=>{
+alert(event);
+    };
+    const updatePopupHandle=(event)=>{
+        alert(event);
+    };
     return (
         <MasterAuth>
-            <PersonTable dataList={content} allItems={totalElements} pageNo={pageNumberDT} rowsPerPage={rowsIntoPage} changePage={ChangePageHandler}
-            editable={true}/>
+            <Button variant="contained" onClick={savePopupHandle} color="secondary" startIcon={<DeleteIcon />} >Delete</Button>
+                <PersonTable dataList={content} allItems={totalElements} pageNo={pageNumberDT} rowsPerPage={rowsIntoPage} changePage={ChangePageHandler}
+            editable={true} onDelete={deletePopupHandle} onUpdate={updatePopupHandle}/>
         </MasterAuth>
     );
 }

@@ -55,14 +55,13 @@ class Ajax {
                 'Authorization': Auth.token(),
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-
             },
             url: `${config.baseUrl}${data.url}`,
             data: z,
         }).then((res) => {
-            const t=Cookies.get('XSRF-TOKEN');
-            //  console.log(res);
-            Cookies.set('XSRF-TOKEN', t, { expires: 7, path: '' });
+            //const t=Cookies.get('XSRF-TOKEN');
+            //console.log(t);
+         //   Cookies.set('XSRF-TOKEN', t, { expires: 7, path: '/api' });
             return res;
         });
 
@@ -80,7 +79,30 @@ class Ajax {
             credentials:'include',
             headers: {
                 'Authorization': Auth.token(),
-                 'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN'),
+                 'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN',{path:'/api'}),
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            url: `${config.baseUrl}${data.url}`,
+            data: z,
+        }).then((res) => {
+            return res
+        });
+        return response;
+
+    }
+    static async newPost(data) {
+        console.log(data);
+        let z='';
+        if(data.data!=null&&data.data!=undefined )
+         z = detectBody(data.data);
+        const response = await axios({
+            method: 'POST',
+            withCredentials: true,
+            credentials:'include',
+            headers: {
+                'Authorization': Auth.token(),
+                'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN',{path:'/api'}),
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },

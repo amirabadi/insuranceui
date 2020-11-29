@@ -14,5 +14,7 @@ export const STRINGS = {
         products: 'محصولات',
         membersOrder: 'سفارشات کاربران',
         membersInformation: 'اطلاعات کاربران'
-    }
+    },
+    titleBaseInfo:'عنوان',
+    titleParentBaseInfo:'والد',
 }

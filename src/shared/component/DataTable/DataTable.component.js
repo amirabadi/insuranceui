@@ -14,6 +14,10 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import TableHead from '@material-ui/core/TableHead';
 
 const useStyles1 = makeStyles((theme) => ({
     root: {
@@ -82,7 +86,7 @@ TablePaginationActions.propTypes = {
 
 const useStyles2 = makeStyles({
     table: {
-        minWidth: 500,
+        minWidth: 250
     },
 });
 
@@ -91,21 +95,34 @@ export default function CustomPaginationActionsTable(props) {
     return (
         <TableContainer component={Paper}>
             <Table className={classes.table} aria-label="custom pagination table">
+                <TableHead>
+
+                    <TableRow>
+                        {props.editable===true?<TableCell  style={{width: 100 }}>OPERATOR</TableCell>:''}
+                        {props.dataHeader.map((rowHe,indexHe)=>(
+                            <TableCell  style={{ width: 100 }} key={indexHe} align="right">
+                                {rowHe}
+                            </TableCell>
+                        ))
+                        }
+                    </TableRow>
+                </TableHead>
                 <TableBody>
                     {props.dataList.map((row,index) => (
                         <TableRow key={index}>
-                            <TableCell component="th" scope="row">
-                                {row.name}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="right">
-                                {row.lname}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="right">
-                                {row.nationalCode}
-                            </TableCell>
-                            <TableCell style={{ width: 160 }} align="right">
-                                {row.nationalCode}
-                            </TableCell>
+                            {props.editable==true?<TableCell  style={{ width: 100 }}> <Button variant="contained" onClick={(event,newPage)=>{props.onDelete(event)}} color="secondary" className={classes.button} startIcon={<DeleteIcon />} >Delete</Button>
+                                <Button variant="contained" color="secondary" onClick={(event,newPage)=>{props.onUpdate(event)}} className={classes.button} startIcon={<EditIcon />}>
+                                    Edit</Button></TableCell>:''}
+                            {props.dataKey.map((rowIn,indexIn)=>(
+                                <TableCell style={{ width: 100 }} key={indexIn} align="right">
+                                    {row[rowIn]==null?'---':row[rowIn]}
+                                </TableCell>
+                            ))
+                            }
+
+
+
+
                         </TableRow>
                     ))}
                 </TableBody>

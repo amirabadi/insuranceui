@@ -68,14 +68,14 @@ export default function LoginPage() {
     }
     const login=async ()=>  {
         const res =await loginService.login(formData);
-        Auth.login(res.data.Authorization);
-    }
-    function handleSubmit(event) {
-        event.preventDefault();
 
-login();
-        if(Auth.isLogin()){
-            history.push('/Person');
+        await Auth.login(res.data.Authorization);
+    }
+    async function handleSubmit(event) {
+        event.preventDefault();
+        await login();
+        if (Auth.isLogin()) {
+            history.push('BaseInfo');
         }
     }
 
